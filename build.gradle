@@ -1,0 +1,37 @@
+plugins {
+	id 'java'
+}
+group = 'net.benelog.jackson'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '13'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.3'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.3'
+	implementation 'com.fasterxml.jackson.module:jackson-module-parameter-names:2.10.3'
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+	testCompileOnly 'org.projectlombok:lombok:1.18.12'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+	testImplementation 'org.assertj:assertj-core:3.15.0'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+}
+
+tasks.withType(JavaCompile).each {
+	it.options.compilerArgs.add('--enable-preview') // JDK13에서 Text Blocks 문법을 쓰기 위해 추가
+	it.options.compilerArgs.add('-parameters') // Jackson의 ParameterNamesModule을 쓰기 위해 추가
+}
+
+test {
+	jvmArgs(['--enable-preview']) // JDK13에서 Text Blocks 문법을 쓰기 위해 추가
+}
+
+test {
+	useJUnitPlatform()
+}
