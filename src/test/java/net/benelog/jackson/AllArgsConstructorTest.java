@@ -1,9 +1,7 @@
 package net.benelog.jackson;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.BDDAssertions.*;
 
-import java.beans.ConstructorProperties;
 import java.time.Instant;
 
 import org.junit.jupiter.api.Test;
