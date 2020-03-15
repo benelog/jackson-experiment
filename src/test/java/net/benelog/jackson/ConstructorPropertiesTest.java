@@ -32,7 +32,6 @@ class ConstructorPropertiesTest {
 		then(accessLog.getAccessDateTime()).isEqualTo("2019-10-10T11:14:16Z");
 		then(accessLog.getIp()).isEqualTo("175.242.91.54");
 		then(accessLog.getUsername()).isEqualTo("benelog");
-		;
 	}
 
 	public static class AccessLog {
