@@ -10,13 +10,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
-class AllArgsConstructorTest {
+class LombokTest {
 	@Test
 	void parse() throws JsonProcessingException {
 		var json = """
@@ -39,8 +37,7 @@ class AllArgsConstructorTest {
 	}
 
 	// lombok.config에  lombok.anyConstructor.addConstructorProperties=true 설정이 있어서
-	// @ConstructorProperties 가 자동으로 추가 된다.
-	@AllArgsConstructor(access = AccessLevel.PRIVATE)
+	// 생성자에 @ConstructorProperties 가 자동으로 추가 된다.
 	@Builder
 	@Getter
 	@ToString
